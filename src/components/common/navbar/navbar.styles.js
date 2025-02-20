@@ -13,6 +13,10 @@ const StyledNavBar = styled(Navbar)`
     max-width: 100%;
     width: 200px;
   }
+  .navbar-collapse{
+    background-color: var(--main-color) !important ;
+    opacity: 0.9;
+  }
 `;
 const StyledNavLink = styled(Nav.Link)`
   font-size: 2.5rem;
