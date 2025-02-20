@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/homePageCompnents/header/Header";
-import { HomeSection, HomeImg, HomeText } from "./home.styles";
+import { HomeSection, HomeImg, HomeText, StyledHome } from "./home.styles";
 import { Col, Container } from "react-bootstrap";
 import { PrimaryText } from "../../components/common/text/PrimaryText.styles";
 import { SecondaryText } from "../../components/common/text/SecondaryText.styles";
@@ -10,11 +10,9 @@ import SwiperCards from "../../components/homePageCompnents/swiperCardsProject/S
 import Services from "../../components/homePageCompnents/services/Services";
 import InformationUs from "../../components/homePageCompnents/informationUs/InformationUs";
 import { Title, Meta, Link } from 'react-head';
-
-// import { Helmet } from "react-helmet";
 function Home() {
   return (
-    <section>
+    <StyledHome>
       <>
       <Title>مؤسسة العين الحديثة | المقاولات العامة</Title>
       <Meta 
@@ -67,8 +65,10 @@ function Home() {
         </HomeSection>
 
       </Container>
-      <Services />
+      <div id= "services"></div>
+      <Services/>
       <Container>
+        <div id="ourProjects"></div>
         <HomeSection>
           <HomeText md={6}>
             <PrimaryText>مشاريعنا</PrimaryText>
@@ -95,7 +95,7 @@ function Home() {
           </Col>
         </HomeSection>
       </Container>
-    </section>
+    </StyledHome>
   );
 }
 

@@ -25,6 +25,12 @@ function NavBar() {
             <StyledNavLink as={Link} to="/contact">
               تواصل معنا
             </StyledNavLink>
+            <StyledNavLink href="#services">
+              خدماتنا
+            </StyledNavLink>
+            <StyledNavLink href="#ourProjects">
+              مشاريعنا
+            </StyledNavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
