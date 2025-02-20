@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../../components/homePageCompnents/header/Header";
 import { HomeSection, HomeImg, HomeText, StyledHome } from "./home.styles";
 import { Col, Container } from "react-bootstrap";
@@ -9,22 +9,34 @@ import manage from "../../assets/images/manage.jpg";
 import SwiperCards from "../../components/homePageCompnents/swiperCardsProject/SwiperCards";
 import Services from "../../components/homePageCompnents/services/Services";
 import InformationUs from "../../components/homePageCompnents/informationUs/InformationUs";
-import { Title, Meta, Link } from 'react-head';
+import { Title, Meta, Link } from "react-head";
+import { useLocation } from "react-router-dom";
 function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.targetSection) {
+      const element = document.getElementById(
+        location.state.targetSection.replace("#", "")
+      );
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location.state]);
   return (
     <StyledHome>
       <>
-      <Title>مؤسسة العين الحديثة | المقاولات العامة</Title>
-      <Meta 
-        name="description" 
-        content="الرائدة في الإنشاءات والتشطيبات بدولة الإمارات" 
-      />
-      <Meta 
-        name="keywords" 
-        content="مقاولات, تشطيبات, بناء فلل, تشطيب داخلي" 
-      />
-      <Meta property="og:type" content="website" />
-
+        <Title>مؤسسة العين الحديثة | المقاولات العامة</Title>
+        <Meta
+          name="description"
+          content="الرائدة في الإنشاءات والتشطيبات بدولة الإمارات"
+        />
+        <Meta
+          name="keywords"
+          content="مقاولات, تشطيبات, بناء فلل, تشطيب داخلي"
+        />
+        <Meta property="og:type" content="website" />
       </>
       <Header />
       <Container>
@@ -63,10 +75,9 @@ function Home() {
             <SecondaryText>بناء علاقات مع المقاولين الفرعيين. </SecondaryText>
           </HomeText>
         </HomeSection>
-
       </Container>
-      <div id= "services"></div>
-      <Services/>
+      <div id="services"></div>
+      <Services />
       <Container>
         <div id="ourProjects"></div>
         <HomeSection>
